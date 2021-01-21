@@ -10,12 +10,6 @@ class Game_Score:
         self.frame = 0
         self.total_points = 0
 
-#   def open_score(self):
-#        suma = 0
-        # for item in self.scorecard:
-        #     suma += int(item)
-        # return suma
-
     def strike_score(self):
         suma = 0
         if self.scorecard[self.contador_tiradas+1] == self.pin_null:
