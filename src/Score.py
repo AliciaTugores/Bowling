@@ -20,11 +20,10 @@ class Game_Score:
             
     def strike_score(self):
         suma = 0
-        
         if self.scorecard[self.contador_tiradas+1] == self.pin_null: #En caso de X-3
-            suma += 0
+            suma += self.scorecard[self.contador_tiradas+2]
         elif self.scorecard[self.contador_tiradas+2] == self.pin_null: #En caso de X6-
-            suma += 0
+            suma += self.scorecard[self.contador_tiradas+1]
         elif self.scorecard[self.contador_tiradas+1] == self.strike:  #En caso de XX6
             suma += self.total_pins * 2 + self.Valores() 
         elif self.scorecard[self.contador_tiradas+2] == self.spare:    #En caso de X4/
@@ -74,6 +73,7 @@ class Game_Score:
                     self.frame += 1
                 elif throw == self.spare:
                     self.spare_score()
+                    self.contador_tiradas += 1
                     self.frame += 0.5
             else: 
                 self.tenth_score()
@@ -84,6 +84,6 @@ class Game_Score:
 #assert 300 == Game_Score('XXXXXXXXXXXX').Total_Score()
 # assert 150 == Game_Score('5/5/5/5/5/5/5/5/5/5/5').Total_Score()
 # assert 133 == Game_Score('8/9-44729-XX8-359/7').Total_Score()
-assert 122 == Game_Score('9/9/X8-513/9-').Total_Score()
+assert 122 == Game_Score('8-7-539/9/X8-513/9-').Total_Score()
 # assert 175 == Game_Score('X5/X5/XX5/--5/X5/').Total_Score()
 # assert 149 == Game_Score('8/549-XX5/53639/9/X').Total_Score()
